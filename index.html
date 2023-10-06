@@ -12,60 +12,65 @@
 
 
 </head>
-<body class="font-spaceMono bg-[#c5e4e7]">
+<body class="font-spaceMono bg-[#c5e4e7] h-screen md:flex md:flex-col md:items-center md:justify-center">
   <div class="flex flex-col items-center h-32 justify-center">
     <h1 class="text-2xl font-bold tracking-[10px] text-verdeOscuro">SPLI</h1>
     <h1 class="text-2xl font-bold tracking-[10px] text-verdeOscuro">TTER</h1>
   </div>
-  <div>
-    <main class="flex flex-col gap-3 p-7 rounded-t-3xl bg-white">
-      <h1 class="text-verdeOscuro">Bill</h1>
+  <div class="md:flex md:items-center bg-white rounded-t-3xl md:rounded-3xl md:w-[800px]">
+    <main class="md:basis-1/2 flex flex-col gap-3 p-7">
+      <div class="flex justify-between">
+        <h1 class="text-verdeOscuro">Bill</h1>
+        <h1 id="msgErrorBill" class="text-red-600"></h1>
+      </div>
       <div class="relative">
-        <input id="myInput" type="number" placeholder="0" dir="rtl" class="bg-gray-100 py-2 px-3 w-full text-verdeOscuro ">
+        <input id="bill" min="5" type="number" placeholder="0" dir="rtl" class="focus:outline-none focus:border-1 focus:border-verdeAgua bg-gray-100 py-2 px-3 w-full text-verdeOscuro ">
         <label class="absolute text-[24px] bottom-2.5 left-3 text-gray-500 px-1 opacity-70"><img src="./images/icon-dollar.svg" alt=""></label>
       </div>  
       <div>
         <h1 class="pb-2">Select Tip %</h1>
         <div class="grid grid-cols-2 gap-4">
-          <button class="hover:bg-verdeAgua hover:text-verdeOscuro text-[24px] bg-verdeOscuro p-2 rounded-md text-white">5%</button>
-          <button class="hover:bg-verdeAgua hover:text-verdeOscuro text-[24px] bg-verdeOscuro p-2 rounded-md text-white" >10%</button>
-          <button class="hover:bg-verdeAgua hover:text-verdeOscuro text-[24px] bg-verdeOscuro p-2 rounded-md text-white" >15%</button>
-          <button class="hover:bg-verdeAgua hover:text-verdeOscuro text-[24px] bg-verdeOscuro p-2 rounded-md text-white" >25%</button>
-          <button class="hover:bg-verdeAgua hover:text-verdeOscuro text-[24px] bg-verdeOscuro p-2 rounded-md text-white" >50%</button>
-          <input class="text-[24px] bg-gray-100 text-verdeOscuro placeholder:text-center px-3" placeholder="Custom" type="number" dir="rtl">
+          <button  value="5" class="botonporcentaje hover:bg-verdeAgua hover:text-verdeOscuro text-[24px] bg-verdeOscuro p-2 rounded-md text-white">5%</button>
+          <button value="10"  class="botonporcentaje hover:bg-verdeAgua hover:text-verdeOscuro text-[24px] bg-verdeOscuro p-2 rounded-md text-white" >10%</button>
+          <button value="15"  class="botonporcentaje hover:bg-verdeAgua hover:text-verdeOscuro text-[24px] bg-verdeOscuro p-2 rounded-md text-white" >15%</button>
+          <button value="25"  class="botonporcentaje hover:bg-verdeAgua hover:text-verdeOscuro text-[24px] bg-verdeOscuro p-2 rounded-md text-white" >25%</button>
+          <button value="50"  class="botonporcentaje hover:bg-verdeAgua hover:text-verdeOscuro text-[24px] bg-verdeOscuro p-2 rounded-md text-white" >50%</button>
+          <input class="botoninput text-[24px] bg-gray-100 text-verdeOscuro placeholder:text-center px-3" placeholder="Custom" type="number" dir="rtl">
         </div>
       </div>
       
       <div>
-        <h1 class="pb-2">Number of People</h1>
+        <div class="flex justify-between">
+          <h1 class="pb-2">Number of People</h1>
+          <span id="msgError" class="text-red-600"></span>
+        </div>
         <div class="relative">
-          <input id="myInput" type="text" placeholder="0" dir="rtl" class="bg-gray-100 py-2 px-3 w-full text-verdeOscuro ">
+          <input id="numPeople" type="number" placeholder="0" dir="rtl" class="bg-gray-100 py-2 px-3 w-full text-verdeOscuro">
           <label class="absolute text-[24px] bottom-2.5 left-3 text-gray-500 px-1 opacity-70"><img src="./images/icon-person.svg" alt=""></label>
         </div>
       </div>
     </main> <!--END BG WHITE-->
-  
-  </div>
-  <div class="px-7 pb-7 bg-white">
-    <div class="bg-verdeOscuro rounded-2xl p-5 pt-10 flex flex-col gap-3">
-      <div class="flex items-center justify-between">
-        <div>
-          <h1 class="text-white">Tip Amount</h1>
-          <h1 class="text-gray-400">/ person</h1>
+    <div class="md:basis-1/2 px-7 pb-7">      
+      <div class="md:px-10 md:mt-5 bg-verdeOscuro rounded-2xl p-5 pt-10 flex flex-col gap-3 md:gap-5">
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="text-white">Tip Amount</h1>
+            <h1 class="text-gray-400">/ person</h1>
+          </div>
+          <h2 id="tip" class="text-[32px] text-verdeAgua">$0.00</h2>
         </div>
-        <h2 class="text-[28px] text-verdeAgua">$4.27</h2>
-      </div>
-      <div class="flex items-center justify-between gap-4">
-        <div>
-          <h1 class="text-white">Total</h1>
-          <h1 class="text-gray-400">/ person</h1>
+        <div class="flex items-center justify-between gap-4">
+          <div>
+            <h1 class="text-white">Total</h1>
+            <h1 class="text-gray-400">/ person</h1>
+          </div>
+          <h2 id="total" class="text-[32px] text-verdeAgua">$0.00</h2>
         </div>
-        <h2 class="text-[28px] text-verdeAgua">$4.27</h2>
+        <button id="resetBtn" class="md:mt-36 hover:bg-[#c5e4e7] uppercase  text-[20px] bg-verdeAgua text-verdeOscuro p-2 rounded-md">reset</button>
       </div>
-      <button class="uppercase  text-[20px] bg-verdeAgua text-verdeOscuro p-2 rounded-md">reset</button>
     </div>
-  
   </div>
+ 
   
   <!-- Bill
 

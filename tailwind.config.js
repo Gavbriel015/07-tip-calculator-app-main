@@ -10,7 +10,8 @@ module.exports = {
     },
     fontFamily: {
       spaceMono: ['Space Mono', 'sans'],
-    }
+    },
+
   },
   plugins: [],
 }
